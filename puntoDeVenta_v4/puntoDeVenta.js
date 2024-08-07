@@ -100,5 +100,21 @@ limpiar = function () {
         Dejar todos los textos de los montos con el valor 0.0
         Si funciona, hacer un commit
      */
+    document.getElementById("txtProducto").value = "";
+    document.getElementById("txtPrecio").value ="0.0";
+    document.getElementById("txtCantidad").value =0;
+    document.getElementById("txtPorcentajeDescuento").value =0;
+    document.getElementById("lblSubtotal").innerText ="0.0";
+    document.getElementById("lblDescuento").innerText ="0.0";
+    document.getElementById("lblValorIVA").innerText ="0.0";
+    document.getElementById("lblTotal").innerText ="0.0";
+    document.getElementById("lblResumen").innerText ="";
+
+
+
+    
+
+
+    
 }
 /* SI TODO FUNCIONA, HACER UN PUSH */
