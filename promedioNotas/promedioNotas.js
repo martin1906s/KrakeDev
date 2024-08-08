@@ -9,9 +9,17 @@ function calcularPromedioNotas(){
     promedio=calcularPromedio(n1,n2,n3);
     promedio=promedio.toFixed(2);
     cambiarTexto("Promedio","Promedio: "+promedio);
-    if(promedio>7){
-        cambiarImagen("img","./imagen/Enner_Violencia.jpg")
+    if(promedio<5 && promedio>0){
+        cambiarTexto("Resultado","Resultado: REPROBADO")
+        cambiarImagen("img","./imagen/reprobado.gif")
+    }else if(promedio>=5 && promedio<=8){
+        cambiarTexto("Resultado","Resultado: BUEN TRABAJO")
+        cambiarImagen("img","./imagen/buentrabajo.gif")
+    }else if(promedio>8 && promedio<=10){
+        cambiarTexto("Resultado","Resultado: EXCELENTE")
+        cambiarImagen("img","./imagen/excelente.gif")
     }else{
-        cambiarImagen("img","./imagen/enner.png")
+        cambiarTexto("Resultado","Resultado: DATOS INCORRECTOS")
+        cambiarImagen("img","./imagen/error.gif")
     }
 }
