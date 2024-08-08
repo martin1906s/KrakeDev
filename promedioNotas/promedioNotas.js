@@ -9,4 +9,9 @@ function calcularPromedioNotas(){
     promedio=calcularPromedio(n1,n2,n3);
     promedio=promedio.toFixed(2);
     cambiarTexto("Promedio","Promedio: "+promedio);
+    if(promedio>7){
+        cambiarImagen("img","./imagen/Enner_Violencia.jpg")
+    }else{
+        cambiarImagen("img","./imagen/enner.png")
+    }
 }
