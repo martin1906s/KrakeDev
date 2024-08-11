@@ -122,3 +122,29 @@ function obtenerProvincia(placa) {
     }
     return nomProvincia;
 }
+
+function obtenerTipoVehiculo(placa) {
+    let tipoVehiculo = "Vehiculo Particular (Privado)";
+    placa = recuperarTexto("txtPlaca");
+
+    if (placa.charAt(1) < "A" || placa.charAt(1) > "Z") {
+        tipoVehiculo = null;
+    }
+    if (placa.charAt(1) == "A" || placa.charAt(1) == "Z") {
+        tipoVehiculo = "Vehiculo Comercial";
+    }
+    if (placa.charAt(1) == "E") {
+        tipoVehiculo = "Vehiculo Gubernamental";
+    }
+    if (placa.charAt(1) == "X") {
+        tipoVehiculo = "Vehiculo de uso Oficial";
+    }
+    if (placa.charAt(1) == "S") {
+        tipoVehiculo = "Vehiculo del Gobierno Provincial";
+    }
+    if (placa.charAt(1) == "M") {
+        tipoVehiculo = "Vehiculo Municipal"
+    }
+
+    return tipoVehiculo;
+}
