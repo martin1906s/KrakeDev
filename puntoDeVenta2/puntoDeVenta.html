@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="utilitarios.js"></script>
+    <script src="serviciosPuntoDeVenta.js"></script>
+    <script src="puntoDeVenta.js"></script>
+    <link rel="stylesheet" href="puntoDeVenta2.css">
+</head>
+
+<body>
+    <div class="principal">
+        <div class="logoEscuela">
+            <img src="./imagenes/logoKrakeDev.png" width="80%" />
+        </div>
+
+        <div class="contenido">
+            <div class="titulo">
+                <b>PUNTO DE VENTA</b>
+            </div>
+
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    PRODUCTO
+                </div>
+                <div>
+                    <input type="text" id="txtProducto" />
+                    <div class="error" id="lblErrorProducto"></div>
+                </div>
+            </div>
+
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    CANTIDAD
+                </div>
+                <div>
+                    <input type="text" id="txtCantidad" />
+                    <div class="error" id="lblErrorCantidad"></div>
+                </div>
+            </div>
+            <div class="ingresoDatos">
+                <div class="tituloCampo">
+                    PRECIO
+                </div>
+                <div>
+                    <input type="text" id="txtPrecio" />
+                    <div class="error" id="lblErrorPrecio"></div>
+                </div>
+            </div>
+            <div class="botones">
+                <div class="contenedorBoton">
+                    <input type="button" value="CALCULAR TOTAL" class="estiloBoton" onclick="calcularValorTotal()" />
+                    <input type="button" value="LIMPIAR" class="estiloBoton" onclick="limpiar()">
+                </div>
+            </div>
+        </div>
+        <div class="areaResultado">
+            <div class="resultado">
+                <div>
+                    <h3 class="c">Subtotal</h3>
+                    <div id="lblSubtotal" class="c">0.0</div>
+                    <h3 class="c">Descuento</h3>
+                    <div id="lblDescuento" class="c">0.0</div>
+                    <h3 class="c">IVA 12%</h3>
+                    <div id="lblValorIVA" class="c">0.0</div>
+                    <h3 class="c">Total</h3>
+                    <div id="lblTotal" class="c">0.0</div>
+                    <h3 class="c">Resumen</h3>
+                    <div id="lblResumen" class="c"></div>
+                    <div id="lblResultado" class="c"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+
+</html>
