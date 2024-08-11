@@ -8,18 +8,29 @@ function validarPlaca() {
     if (erroresEstructura == null) {
         provincia = obtenerProvincia("txtPlaca")
         tipo = obtenerTipoVehiculo("txtPlaca");
-        diaPyP=obtenerDiaPicoYPlaca("txtPlaca");
+        diaPyP = obtenerDiaPicoYPlaca("txtPlaca");
         mostrarTexto("lblMensajeErrores", "PLACA: VALIDA");
         mostrarTexto("lblErrores", "");
         mostrarTexto("nomProvincia", provincia);
         mostrarTexto("tipoVehiculo", tipo);
-        mostrarTexto("diaPyP",diaPyP);
+        mostrarTexto("diaPyP", diaPyP);
 
     } else {
         mostrarTexto("lblMensajeErrores", "PLACA: INCORRECTA");
         mostrarTexto("lblErrores", erroresEstructura);
         mostrarTexto("nomProvincia", "");
         mostrarTexto("tipoVehiculo", "");
-        mostrarTexto("diaPyP","");
+        mostrarTexto("diaPyP", "");
     }
+}
+
+function limpiar() {
+    mostrarTexto("lblMensajeErrores", "Placa");
+    mostrarTexto("lblErrores", "");
+    mostrarTexto("nomProvincia", "");
+    mostrarTexto("tipoVehiculo", "");
+    mostrarTexto("diaPyP", "");
+    mostrarTextoEnCaja("txtPlaca","");
+    
+
 }

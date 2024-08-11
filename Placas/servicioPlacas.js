@@ -153,21 +153,21 @@ function obtenerDiaPicoYPlaca(placa) {
     let picoYplaca;
     let Vplaca;
     placa = recuperarTexto("txtPlaca");
-    Vplaca=placa.charAt(placa.length - 1);
-    if (Vplaca=="1" || Vplaca=="2") {
-        picoYplaca="Lunes"        
+    Vplaca = placa.charAt(placa.length - 1);
+    if (Vplaca == "1" || Vplaca == "2") {
+        picoYplaca = "Lunes"
     }
-    if (Vplaca=="3" || Vplaca=="4") {
-        picoYplaca="Martes"        
+    if (Vplaca == "3" || Vplaca == "4") {
+        picoYplaca = "Martes"
     }
-    if (Vplaca=="5" || Vplaca=="6") {
-        picoYplaca="Miércoles"        
+    if (Vplaca == "5" || Vplaca == "6") {
+        picoYplaca = "Miércoles"
     }
-    if (Vplaca=="7" || Vplaca=="8") {
-        picoYplaca="Jueves"        
+    if (Vplaca == "7" || Vplaca == "8") {
+        picoYplaca = "Jueves"
     }
-    if (Vplaca=="9" || Vplaca=="0") {
-        picoYplaca="Viernes"        
+    if (Vplaca == "9" || Vplaca == "0") {
+        picoYplaca = "Viernes"
     }
 
     return picoYplaca;
