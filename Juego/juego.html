@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juega Piedra, Papel o Tijera</title>
+    <script src="juego.js"></script>
+    <script src="servicioJuego.js"></script>
+    <script src="utilitarios.js"></script>
+    <link rel="stylesheet" href="juego.css">
+</head>
+
+<body>
+    <h1 class="tit">JUEGA PIEDRA PAPEL O TIJERA</h1>
+    <div class="contImg">
+        <img src="./imagenes/piedra.png" class="img" onclick="jugar('piedra');">
+        <img src="./imagenes/papel.png" class="img" onclick="jugar('papel');">
+        <img src="./imagenes/tijera.png" class="img" onclick="jugar('tijera');">
+    </div>
+    <h1 class="vs">VS</h1>
+    <div class="contImg">
+        <img src="" id="cpuEleccion" class="img">
+    </div>
+    <div id="lblResultado">RESULTADO: </div>
+    <div class="puntos">
+        <div class="jugadores">
+            <h3 class="jug">USUARIO</h3>
+            <div id="ptsUsuario">0 pts.</div>
+        </div>
+        <div class="jugadores">
+            <h3 class="jug">COMPUTADOR</h3>
+            <div id="ptsCpu">0 pts.</div>
+        </div>
+    </div>
+    <h2 class="ganador">GANADOR</h2>
+    <div id="ganador"></div>
+    <input type="button" value="NUEVA PARTIDA" class="btn" onclick="limpiar();">
+</body>
+
+</html>
