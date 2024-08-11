@@ -1,0 +1,44 @@
+body{
+    background-image: linear-gradient(to right, rgb(255, 251, 0)20%, rgb(0, 60, 255)50%, rgb(255, 0, 0)80%);
+  
+}
+.titulo{
+    color: white;
+    text-align: center;
+    font-size: 70px;
+}
+
+#txtPlaca{
+    border: 0;
+    border-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    font-size: 60px;
+    text-align: center;
+    margin-left: 35%;
+    margin-bottom: 40px;
+    width: 400px;
+    height: 70px;
+}
+.contenidoErrores{
+    display: flex;
+    justify-content: center;
+}
+
+#lblErrores{
+    font-size: 25px;
+    color: white;
+}
+
+.boton{
+    margin: auto;
+    display: block;
+    width: 100px;
+    height: 40px;
+}
+
+#lblMensajeErrores{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 40px;
+}
