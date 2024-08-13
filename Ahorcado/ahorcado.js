@@ -64,6 +64,7 @@ function validar(letra) {
     if (letrasEncontradas==0) {
         alert("LA LETRA NO ES PARTE DE LA PALABRA");
         errores++;
+        mostrarAhorcado();
     }
 }
 
@@ -80,5 +81,35 @@ function ingresarLetra() {
         }
     }else{
         alert("SOLO SE ACEPTAN MAYUSCULAS")
+    }
+}
+
+function mostrarAhorcado() {
+    if (errores==1) {
+        mostrarImagen("ahorcadoImagen","Ahorcado_01.png")
+    }
+    if (errores==2) {
+        mostrarImagen("ahorcadoImagen","Ahorcado_02.png")
+    }
+    if (errores==3) {
+        mostrarImagen("ahorcadoImagen","Ahorcado_03.png")
+    }
+    if (errores==4) {
+        mostrarImagen("ahorcadoImagen","Ahorcado_04.png")
+    }
+    if (errores==5) {
+        mostrarImagen("ahorcadoImagen","Ahorcado_05.png")
+    }
+    if (errores==6) {
+        mostrarImagen("ahorcadoImagen","Ahorcado_06.png")
+    }
+    if (errores==7) {
+        mostrarImagen("ahorcadoImagen","Ahorcado_07.png")
+    }
+    if (errores==8) {
+        mostrarImagen("ahorcadoImagen","Ahorcado_08.png")
+    }
+    if (errores==9) {
+        mostrarImagen("ahorcadoImagen","Ahorcado_09.png")
     }
 }
