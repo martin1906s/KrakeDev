@@ -33,18 +33,28 @@ function guardarPalabra() {
 
 function mostrarLetra(letra, posicion) {
     if (posicion==0) {
-        mostrarTexto("div0",letra)        
+        mostrarTexto("div0",letra);        
     }
     if (posicion==1) {
-        mostrarTexto("div1",letra)        
+        mostrarTexto("div1",letra);        
     }
     if (posicion==2) {
-        mostrarTexto("div2",letra)        
+        mostrarTexto("div2",letra);       
     }
     if (posicion==3) {
-        mostrarTexto("div3",letra)        
+        mostrarTexto("div3",letra);       
     }
     if (posicion==4) {
-        mostrarTexto("div4",letra)        
+        mostrarTexto("div4",letra);        
+    }
+}
+
+function validar(letra) {
+    let letrasEncontradas=0;
+    for(let i=0;i<palabraSecreta.length;i++){
+        if (letra==palabraSecreta.charAt(i)) {
+            mostrarLetra(letra,i);
+            letrasEncontradas++;
+        }
     }
 }
