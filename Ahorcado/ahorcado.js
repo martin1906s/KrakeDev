@@ -26,7 +26,7 @@ function guardarPalabra() {
         }
     }
     if (contadorMayusculas!=5) {
-        alert("Debe contener 5 letras mayúsculas");
+        alert("Debe contener 5 letras mayusculas");
     }
     palabraSecreta=palabra;
 }
@@ -56,5 +56,14 @@ function validar(letra) {
             mostrarLetra(letra,i);
             letrasEncontradas++;
         }
+    }
+}
+
+function ingresarLetra() {
+    let rLetra=recuperarTexto("txtLetra");
+    if(esMayuscula(rLetra)){
+        validar(rLetra);
+    }else{
+        alert("SOLO SE ACEPTAN MAYUSCULAS")
     }
 }
