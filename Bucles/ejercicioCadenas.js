@@ -31,3 +31,31 @@ function invertirCadena(cadena) {
     }
     return almacenamiento;
 }
+
+function buscarLetra(cadena, letra) {
+    let letraInterada;
+    let existeLetra=false;
+    for(let i=0;i<cadena.length;i++){
+        letraInterada=cadena.charAt(i);
+        if (letraInterada==letra) {
+            existeLetra=true;
+        }
+    }
+    if (existeLetra==true) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function contarMayusculas(cadena) {
+    let letra;
+    let contadorMayusculas=0;
+    for(let i=0;i<cadena.length;i++){
+        letra=cadena.charAt(i);
+        if(esMayuscula(letra)){
+            contadorMayusculas++;
+        }
+    }
+    console.log(contadorMayusculas);
+}
