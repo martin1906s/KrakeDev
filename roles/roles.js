@@ -90,7 +90,7 @@ function guardar() {
     if (valorCedula.length != 10) {
         mostrarTexto("lblErrorCedula", "DEBE CONTENER 10 DIGITOS");
         return;
-    }else{
+    } else {
         mostrarTexto("lblErrorCedula", "");
     }
     for (let i = 0; i < valorCedula.length; i++) {
@@ -98,7 +98,7 @@ function guardar() {
         if (digitoCedula < 48 || digitoCedula > 57) {
             mostrarTexto("lblErrorCedula", "DEBE CONTENER SOLO DIGITOS");
             break;
-        }else{
+        } else {
             mostrarTexto("lblErrorCedula", "");
         }
     }
@@ -106,7 +106,7 @@ function guardar() {
     if (valorNombre.length < 3) {
         mostrarTexto("lblErrorNombre", "EL NOMBRE DEBE TENER MÍNIMO 3 CARACTERES");
         return;
-    }else{
+    } else {
         mostrarTexto("lblErrorNombre", "");
     }
     for (let i = 0; i < valorNombre.length; i++) {
@@ -114,7 +114,7 @@ function guardar() {
         if (caracterNombre < 65 || caracterNombre > 90) {
             mostrarTexto("lblErrorNombre", "LAS LETRAS DEBEN SER MAYÚSCULAS");
             break;
-        }else{
+        } else {
             mostrarTexto("lblErrorNombre", "");
         }
     }
@@ -122,7 +122,7 @@ function guardar() {
     if (valorApellido.length < 3) {
         mostrarTexto("lblErrorApellido", "EL APELLIDO DEBE TENER MÍNIMO 3 CARACTERES");
         return;
-    }else{
+    } else {
         mostrarTexto("lblErrorApellido", "");
     }
     for (let i = 0; i < valorApellido.length; i++) {
@@ -130,7 +130,7 @@ function guardar() {
         if (caracterApellido < 65 || caracterApellido > 90) {
             mostrarTexto("lblErrorApellido", "LAS LETRAS DEBEN SER MAYÚSCULAS");
             break;
-        }else{
+        } else {
             mostrarTexto("lblErrorApellido", "");
         }
     }
@@ -138,7 +138,7 @@ function guardar() {
     if (isNaN(valorSueldo)) {
         mostrarTexto("lblErrorSueldo", "EL SUELDO DEBE SER UN NÚMERO DECIMAL");
         return;
-    }else{
+    } else {
         mostrarTexto("lblErrorSueldo", "");
     }
     if (valorSueldo < 400) {
@@ -146,7 +146,8 @@ function guardar() {
         return;
     } else if (valorSueldo > 5000) {
         mostrarTexto("lblErrorSueldo", "EL SUELDO DEBE SER MENOR A 5000$");
-    }else{
+        return;
+    } else {
         mostrarTexto("lblErrorSueldo", "");
     }
     if (esNuevo == true) {
@@ -159,8 +160,13 @@ function guardar() {
         if (nuevoEmpleado == true) {
             alert("EMPLEADO GUARDADO CORRECTAMENTE");
             mostrarEmpleados();
-        }else{
-            alert("YA EXISTE UN EMPLEADO CON CEDULA: "+empleados.cedula);
+            deshabilitarComponente("txtCedula");
+            deshabilitarComponente("txtNombre");
+            deshabilitarComponente("txtApellido");
+            deshabilitarComponente("txtSueldo");
+            deshabilitarComponente("btnGuardar");
+        } else {
+            alert("YA EXISTE UN EMPLEADO CON CEDULA: " + empleados.cedula);
         }
     }
 }
