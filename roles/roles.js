@@ -5,7 +5,7 @@ let empleados = [
 ]
 function mostrarEmpleados() {
     let cmpTabla = document.getElementById("tablaEmpleados")
-    let contenidoTabla = "<table border='1'><tr>" +
+    let contenidoTabla = "<table border='3' style='border-radius: 30px; border-color: red;'><tr>" +
         "<th>CEDULA</th>" +
         "<th>NOMBRE</th>" +
         "<th>APELLIDO</th>"+
