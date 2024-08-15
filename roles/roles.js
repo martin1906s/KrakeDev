@@ -56,5 +56,111 @@ function ejecutarNuevo() {
     habilitarComponente("txtApellido");
     habilitarComponente("txtSueldo");
     habilitarComponente("btnGuardar");
-    esNuevo=true;
+    esNuevo = true;
+}
+
+function buscarEmpleado(cedula) {
+    let buscarEmpleado;
+    let empleadoEncontrado = null;
+    for (let i = 0; i < empleados.length; i++) {
+        buscarEmpleado = empleados[i];
+        if (buscarEmpleado.cedula == cedula) {
+            empleadoEncontrado = buscarEmpleado;
+            break;
+        }
+    }
+    return empleadoEncontrado;
+}
+
+function agregarEmpleado(empleado) {
+    let empleadoAgregado = buscarEmpleado(empleado.cedula);
+    if (empleadoAgregado == null) {
+        empleados.push(empleado);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+
+function guardar() {
+    let valorCedula = recuperarTexto("txtCedula");
+    if (valorCedula.length != 10) {
+        mostrarTexto("lblErrorCedula", "DEBE CONTENER 10 DIGITOS");
+        return;
+    }else{
+        mostrarTexto("lblErrorCedula", "");
+    }
+    for (let i = 0; i < valorCedula.length; i++) {
+        let digitoCedula = valorCedula.charCodeAt(i);
+        if (digitoCedula < 48 || digitoCedula > 57) {
+            mostrarTexto("lblErrorCedula", "DEBE CONTENER SOLO DIGITOS");
+            break;
+        }else{
+            mostrarTexto("lblErrorCedula", "");
+        }
+    }
+    let valorNombre = recuperarTexto("txtNombre");
+    if (valorNombre.length < 3) {
+        mostrarTexto("lblErrorNombre", "EL NOMBRE DEBE TENER MÍNIMO 3 CARACTERES");
+        return;
+    }else{
+        mostrarTexto("lblErrorNombre", "");
+    }
+    for (let i = 0; i < valorNombre.length; i++) {
+        let caracterNombre = valorNombre.charCodeAt(i);
+        if (caracterNombre < 65 || caracterNombre > 90) {
+            mostrarTexto("lblErrorNombre", "LAS LETRAS DEBEN SER MAYÚSCULAS");
+            break;
+        }else{
+            mostrarTexto("lblErrorNombre", "");
+        }
+    }
+    let valorApellido = recuperarTexto("txtApellido");
+    if (valorApellido.length < 3) {
+        mostrarTexto("lblErrorApellido", "EL APELLIDO DEBE TENER MÍNIMO 3 CARACTERES");
+        return;
+    }else{
+        mostrarTexto("lblErrorApellido", "");
+    }
+    for (let i = 0; i < valorApellido.length; i++) {
+        let caracterApellido = valorApellido.charCodeAt(i);
+        if (caracterApellido < 65 || caracterApellido > 90) {
+            mostrarTexto("lblErrorApellido", "LAS LETRAS DEBEN SER MAYÚSCULAS");
+            break;
+        }else{
+            mostrarTexto("lblErrorApellido", "");
+        }
+    }
+    let valorSueldo = recuperarFloat("txtSueldo");
+    if (isNaN(valorSueldo)) {
+        mostrarTexto("lblErrorSueldo", "EL SUELDO DEBE SER UN NÚMERO DECIMAL");
+        return;
+    }else{
+        mostrarTexto("lblErrorSueldo", "");
+    }
+    if (valorSueldo < 400) {
+        mostrarTexto("lblErrorSueldo", "EL SUELDO DEBE SER MAYOR A 400$");
+        return;
+    } else if (valorSueldo > 5000) {
+        mostrarTexto("lblErrorSueldo", "EL SUELDO DEBE SER MENOR A 5000$");
+    }else{
+        mostrarTexto("lblErrorSueldo", "");
+    }
+    if (esNuevo == true) {
+        let empleados = {};
+        empleados.cedula = valorCedula;
+        empleados.nombre = valorNombre;
+        empleados.apellido = valorApellido;
+        empleados.sueldo = valorSueldo;
+        let nuevoEmpleado = agregarEmpleado(empleados);
+        if (nuevoEmpleado == true) {
+            alert("EMPLEADO GUARDADO CORRECTAMENTE");
+            mostrarEmpleados();
+        }else{
+            alert("YA EXISTE UN EMPLEADO CON CEDULA: "+empleados.cedula);
+        }
+    }
 }
