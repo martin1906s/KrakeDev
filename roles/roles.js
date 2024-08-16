@@ -39,6 +39,7 @@ function mostrarOpcionRol() {
     let divEmpleado = ocultarComponente("divEmpleado");
     let divResumen = ocultarComponente("divResumen");
     deshabilitarComponente("btnGuardarRol");
+    mostrarRoles();
 }
 
 function buscarPorRol() {
@@ -92,12 +93,53 @@ function guardarRol() {
     rol.cedula=cedula;
     rol.nombre=nombre;
     rol.sueldo=sueldo;
-    rol.valorAPAgar=valorAPagar;
+    rol.valorAPagar=valorAPagar;
     rol.aporteEmpleado=aporteEmpleado;
     rol.aporteEmpleador=aporteEmpleador;
     agregarRol(rol);
     alert("ROL GUARDADO");
     deshabilitarComponente("btnGuardarRol");
+    mostrarRoles();
+}
+
+function mostrarRoles() {
+    let cmpTabla=document.getElementById("tablaResumen");
+    let contenidoTabla = "<table border='3' style='border-radius: 30px; border-color: red;'><tr>" +
+        "<th>CEDULA</th>" +
+        "<th>NOMBRE</th>" +
+        "<th>VALOR A PAGAR</th>" +
+        "<th>APORTE EMPLEADO</th>"+
+        "<th>APORTE EMPLEADOR</th>"
+        + "</tr>";
+    let elementoRol;
+    for(let i=0;i<=roles.length-1;i++){
+        elementoRol=roles[i];
+        contenidoTabla+=
+            "<tr><td>" + elementoRol.cedula + "</td>"
+            + "<td>" + elementoRol.nombre + "</td>"
+            + "<td>" + elementoRol.valorAPagar + "</td>"
+            + "<td>" + elementoRol.aporteEmpleado + "</td>"
+            + "<td>" + elementoRol.aporteEmpleador + "</td>"
+            + "</tr>";
+    }
+    contenidoTabla+="</table>";
+    cmpTabla.innerHTML=contenidoTabla;  
+    mostrarTotales(); 
+}
+
+function mostrarTotales() {
+    let totalEmpleado=0;
+    let totalEmpleador=0;
+    let totalAPagar=0;
+    for(let i=0;i<roles.length;i++){
+        totalEmpleado+=roles[i].aporteEmpleado;
+        totalEmpleador += roles[i].aporteEmpleador;
+        totalAPagar += roles[i].valorAPagar;
+    }
+    mostrarTexto("infoTotalPago",totalAPagar);
+    mostrarTexto("infoAporteEmpresa",totalEmpleador);
+    mostrarTexto("infoAporteEmpleado",totalEmpleado);
+
 }
 
 function calcularAporteEmpleado(sueldo) {
