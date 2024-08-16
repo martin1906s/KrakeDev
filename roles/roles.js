@@ -45,13 +45,43 @@ function buscarPorRol() {
     let empleadoBuscado = buscarEmpleado(cmpRol);
     if (empleadoBuscado == null) {
         alert("EMPLEADO NO ENCONTRADO")
-    } else { 
-        mostrarTexto("infoCedula",empleadoBuscado.cedula);
-        mostrarTexto("infoNombre",empleadoBuscado.nombre+" "+empleadoBuscado.apellido);
-        mostrarTexto("infoSueldo",empleadoBuscado.sueldo);
-
+    } else {
+        mostrarTexto("infoCedula", empleadoBuscado.cedula);
+        mostrarTexto("infoNombre", empleadoBuscado.nombre + " " + empleadoBuscado.apellido);
+        mostrarTexto("infoSueldo", empleadoBuscado.sueldo);
     }
+}
 
+function calcularAporteEmpleado(sueldo) {
+    let aporteEmpleado = (sueldo * 9.45) / 100;
+    return aporteEmpleado;
+}
+
+function calcularValorApagar(sueldo, iess, descuento) {
+    iess = calcularAporteEmpleado(sueldo)
+    let valorAPagar = sueldo - iess - descuento
+    return valorAPagar;
+}
+
+function calcularRol() {
+    let sueldo = recuperarTextoDiv("infoSueldo");
+    let desuento = recuperarFloat("txtDescuentos");
+    if (isNaN(desuento)) {
+        mostrarTexto("lblErrorDescuentos", "EL DESCUENTO DEBE SER UN NÚMERO DECIMAL");
+    } else {
+        mostrarTexto("lblErrorDescuentos", "");
+        if (desuento < 0) {
+            mostrarTexto("lblErrorDescuentos", "EL DESCUENTO DEBE SER MAYOR A 0");
+        } else if (desuento > sueldo) {
+            mostrarTexto("lblErrorDescuentos", "EL DESCUENTO DEBE SER MENOR QUE " + sueldo + "$");
+        } else {
+            mostrarTexto("lblErrorDescuentos", "");
+        }
+        let aporteEmpleado = calcularAporteEmpleado(sueldo);
+        mostrarTexto("infoIESS", aporteEmpleado);
+        let valorAPagar = calcularValorApagar(sueldo, aporteEmpleado, desuento);
+        mostrarTexto("infoPago", valorAPagar);
+    }
 }
 
 function mostrarOpcionResumen() {
