@@ -4,7 +4,7 @@ let empleados = [
     { cedula: "1715614788", nombre: "Alexandra", apellido: "Flores", sueldo: 1200.0 }
 ]
 let esNuevo = false;
-
+let roles = [];
 function mostrarEmpleados() {
     let cmpTabla = document.getElementById("tablaEmpleados")
     let contenidoTabla = "<table border='3' style='border-radius: 30px; border-color: red;'><tr>" +
@@ -38,6 +38,7 @@ function mostrarOpcionRol() {
     let divRol = mostrarComponente("divRol");
     let divEmpleado = ocultarComponente("divEmpleado");
     let divResumen = ocultarComponente("divResumen");
+    deshabilitarComponente("btnGuardarRol");
 }
 
 function buscarPorRol() {
@@ -50,6 +51,53 @@ function buscarPorRol() {
         mostrarTexto("infoNombre", empleadoBuscado.nombre + " " + empleadoBuscado.apellido);
         mostrarTexto("infoSueldo", empleadoBuscado.sueldo);
     }
+}
+
+function buscarRol(cedula) {
+    let buscaRol;
+    let rolEncontrado = null;
+    for (let i = 0; i < roles.length; i++) {
+        buscaRol = roles[i];
+        if (buscaRol.cedula == cedula) {
+            rolEncontrado = buscaRol;
+            break;
+        }
+    }
+    return rolEncontrado;
+}
+
+function agregarRol(rol) {
+    let rolAgregado = buscarRol(rol.cedula);
+    if (rolAgregado == null) {
+        roles.push(rol);
+        alert("EXITO");
+    } else {
+        alert("ERROR");
+    }
+}
+
+function calcularAporteEmpleador(sueldo) {
+    let aporteEmpleador=(sueldo*11.15)/100;
+    return aporteEmpleador;
+}
+
+function guardarRol() {
+    let valorAPagar=recuperarFloatDiv("infoPago");
+    let aporteEmpleado=recuperarFloatDiv("infoIESS");
+    let nombre=recuperarTextoDiv("infoNombre");
+    let cedula=recuperarTextoDiv("infoCedula");
+    let sueldo=recuperarFloatDiv("infoSueldo");
+    let aporteEmpleador=calcularAporteEmpleador(sueldo);
+    let rol={};
+    rol.cedula=cedula;
+    rol.nombre=nombre;
+    rol.sueldo=sueldo;
+    rol.valorAPAgar=valorAPagar;
+    rol.aporteEmpleado=aporteEmpleado;
+    rol.aporteEmpleador=aporteEmpleador;
+    agregarRol(rol);
+    alert("ROL GUARDADO");
+    deshabilitarComponente("btnGuardarRol");
 }
 
 function calcularAporteEmpleado(sueldo) {
@@ -81,6 +129,7 @@ function calcularRol() {
         mostrarTexto("infoIESS", aporteEmpleado);
         let valorAPagar = calcularValorApagar(sueldo, aporteEmpleado, desuento);
         mostrarTexto("infoPago", valorAPagar);
+        habilitarComponente("btnGuardarRol")
     }
 }
 
