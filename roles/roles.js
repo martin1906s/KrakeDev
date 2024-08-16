@@ -139,7 +139,8 @@ function mostrarTotales() {
     mostrarTexto("infoTotalPago",totalAPagar);
     mostrarTexto("infoAporteEmpresa",totalEmpleador);
     mostrarTexto("infoAporteEmpleado",totalEmpleado);
-
+    let totalNomina=totalAPagar+totalEmpleado+totalEmpleador;
+    mostrarTexto("totalNomina",totalNomina);
 }
 
 function calcularAporteEmpleado(sueldo) {
