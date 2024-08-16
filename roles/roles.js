@@ -40,6 +40,20 @@ function mostrarOpcionRol() {
     let divResumen = ocultarComponente("divResumen");
 }
 
+function buscarPorRol() {
+    let cmpRol = recuperarTexto("txtBusquedaCedulaRol");
+    let empleadoBuscado = buscarEmpleado(cmpRol);
+    if (empleadoBuscado == null) {
+        alert("EMPLEADO NO ENCONTRADO")
+    } else { 
+        mostrarTexto("infoCedula",empleadoBuscado.cedula);
+        mostrarTexto("infoNombre",empleadoBuscado.nombre+" "+empleadoBuscado.apellido);
+        mostrarTexto("infoSueldo",empleadoBuscado.sueldo);
+
+    }
+
+}
+
 function mostrarOpcionResumen() {
     let divEmpleado = ocultarComponente("divEmpleado");
     let divRol = ocultarComponente("divRol");
@@ -160,10 +174,10 @@ function guardar() {
             esNuevo = false;
         } else {
             alert("YA EXISTE UN EMPLEADO CON CEDULA: " + empleados.cedula);
-            let empleadoEncontrado=buscarEmpleado(valorCedula);
-            empleadoEncontrado.nombre=valorNombre;
-            empleadoEncontrado.apellido=valorApellido;
-            empleadoEncontrado.sueldo=valorSueldo;
+            let empleadoEncontrado = buscarEmpleado(valorCedula);
+            empleadoEncontrado.nombre = valorNombre;
+            empleadoEncontrado.apellido = valorApellido;
+            empleadoEncontrado.sueldo = valorSueldo;
             alert("EMPLEADO MODIFICADO EXITOSAMENTE");
             mostrarEmpleados();
             deshabilitar()
@@ -204,10 +218,10 @@ function ejecutarBusqueda() {
 }
 
 function limpiar() {
-    mostrarTextoEnCaja("txtCedula","");
-    mostrarTextoEnCaja("txtNombre","");
-    mostrarTextoEnCaja("txtApellido","");
-    mostrarTextoEnCaja("txtSueldo","");
-    esNuevo=false;
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtSueldo", "");
+    esNuevo = false;
     deshabilitar();
 }
