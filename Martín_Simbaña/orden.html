@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="orden.js"></script>
+    <script src="utilitarios.js"></script>
+    <link rel="stylesheet" href="orden.css">
+</head>
+
+<body onload="mostrarPersonas();">
+    <div class="ingresoDatos">
+        <div class="tituloCampo">
+            NOMBRE
+        </div>
+        <div>
+            <input type="text" class="cajaTexto" id="txtNombre" />
+            <div class="error" id="lblErrorNombre"></div>
+        </div>
+    </div>
+    <div class="ingresoDatos">
+        <div class="tituloCampo">
+            EDAD
+        </div>
+        <div>
+            <input type="text" class="cajaTexto" id="txtEdad" />
+            <div class="error" id="lblErrorEdad"></div>
+        </div>
+    </div>
+
+    <h1>PERSONA MAYOR</h1>
+    <h3 id="personaMayor"></h3>
+
+    <h1>PERSONA MENOR</h1>
+    <h3 id="personaMenor"></h3>
+
+    <div class="botones">
+        <div class="contenedorBoton">
+            <input type="button" value="GUARDAR" class="estiloBoton" onclick="agregarPersona();"/>
+        </div>
+        <div class="contenedorBoton">
+            <input type="button" value="ENCONTRAR MAYOR" class="estiloBoton" onclick="determinarMayor();"/>
+        </div>
+        <div class="contenedorBoton">
+            <input type="button" value="ENCONTRAR MENOR" class="estiloBoton" onclick="determinarMenor();"/>
+        </div>
+    </div>
+    <div id="tablaPersonas" class="areaTabla">
+
+    </div>
+</body>
+
+</html>
